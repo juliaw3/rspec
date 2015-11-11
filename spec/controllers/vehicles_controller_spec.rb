@@ -4,12 +4,12 @@ describe VehiclesController do
 	describe 'POST #create' do
 		context 'with valid attributes' do
 			it 'creates the vehicles' do
-				post :create, cehicles: attributes_for(:vehicle)
+				post :create, vehicle: attributes_for(:vehicle)
 				expect(Vehicle.count).to eq(1)
 			end
 
 			it 'redirects to the "show" action for the vehicle' do
-				post :create, vehicle:attributes_for(:vehicle)
+				post :create, vehicle: attributes_for(:vehicle)
 				expect(response).to redirect_to Vehicle.first
 			end
 		end

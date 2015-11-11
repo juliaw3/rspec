@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :vehicle do
-    model   { Faker::Vehicle.model }
-    make    { Faker::Vehicle.make  }
-    year    { Faker::Vehicle.year  }
+    model   { FFaker::Vehicle.model }
+    make    { FFaker::Vehicle.make  }
+    year    { FFaker::Vehicle.year  }
     style   'Car'
   end
 end
