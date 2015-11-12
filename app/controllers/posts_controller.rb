@@ -17,6 +17,9 @@ class PostsController < ApplicationController
 		id = params.require(:id)
 		@post = Post.find(id)
 	end
+	def index
+		@posts = Post.all
+	end
 
 	private
 	def post_params

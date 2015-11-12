@@ -1,12 +1,14 @@
 require 'rails_helper'
+require 'spec_helper'
 
 feature 'User signs in' do
 	scenario 'with valid credentials' do
-		visit sign_in_path
-		fill_in 'Username', with: 'joe.example'
+		User.create!(email: "joe@example.com", password: "passw0rd")
+		visit user_session_path
+		fill_in 'Email', with: 'joe@example.com'
 		fill_in 'Password', with: 'passw0rd'
 		click_on 'Sign In'
 
-		expect(page).to have_content("You have successfully signed in!")
+		expect(page).to have_content("joe@example.com")
 	end
 end

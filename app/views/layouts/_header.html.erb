@@ -1,0 +1,6 @@
+<ul class = "right">
+<%if signed_in?%>
+	<li><%=link_to current_user.email, edit_user_registration_path%></li>
+<%else%>
+	<li><%=link_to "Login", user_session_path%></li>
+<%end%>
