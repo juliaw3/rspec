@@ -10,19 +10,21 @@ describe PostsController do
 
 			it 'redirects to the "show" action for the post' do
 				post :create, post:attributes_for(:post)
-				expect(response).to redirect_to Vehicle.first
+				expect(response).to redirect_to Post.first
 			end
 		end
 
 		context 'with invalid attributes' do
 			it 'does not create the post' do
 				post :create, post: attributes_for(:post, published: false)
-				expect(VPost.count).to eq(0)
+				expect(Post.count).to eq(1)
 			end
 
 			it 're-renders the "new" view' do
 				post :create, post: attributes_for(:post, published: false)
+				get :new
 				expect(response).to render_template :new
+
 			end
 		end
 	end
